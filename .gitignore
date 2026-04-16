@@ -2,3 +2,6 @@
 .obsidian/cache
 .trash/
 .DS_Store
+
+# 排除 PDF 电子书(已移至外部文件夹)
+*.pdf
