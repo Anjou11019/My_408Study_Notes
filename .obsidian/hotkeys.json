@@ -1,0 +1,12 @@
+{
+  "editor:focus": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "G"
+    }
+  ],
+  "file-explorer:new-file": []
+}
