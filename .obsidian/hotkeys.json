@@ -8,5 +8,14 @@
       "key": "G"
     }
   ],
-  "file-explorer:new-file": []
+  "file-explorer:new-file": [],
+  "editor:toggle-highlight": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "I"
+    }
+  ]
 }

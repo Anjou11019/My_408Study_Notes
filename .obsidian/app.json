@@ -4,5 +4,8 @@
   "showInlineTitle": true,
   "focusNewTab": true,
   "strictLineBreaks": false,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "trashOption": "system",
+  "showUnsupportedFiles": true,
+  "autoConvertHtml": false
 }
