@@ -1,9 +1,16 @@
 {
+  "showTabTitlebarButtons": true,
   "copyLinkToElemenetAnchorTo100": false,
   "copyFrameLinkByName": false,
   "disableDoubleClickTextEditing": false,
   "phoneFooterSafeAreaPadding": false,
+  "tabletFooterSafeAreaPadding": false,
   "folder": "Excalidraw",
+  "libraryFolderPath": "Excalidraw/Libraries",
+  "libraryFileName": "local-library",
+  "libraryStorageMode": "vault",
+  "libraryMigrationStatus": "not-required",
+  "libraryMigrationSnoozeUntil": 0,
   "cropFolder": "",
   "annotateFolder": "",
   "embedUseExcalidrawFolder": false,
@@ -85,7 +92,7 @@
   "pageTransclusionCharLimit": 200,
   "wordWrappingDefault": 0,
   "removeTransclusionQuoteSigns": true,
-  "iframelyAllowed": true,
+  "oEmbedAllowed": false,
   "pngExportScale": 1,
   "exportWithTheme": true,
   "exportWithBackground": true,
@@ -99,6 +106,7 @@
   "embedType": "excalidraw",
   "embedMarkdownCommentLinks": true,
   "embedWikiLink": true,
+  "embedPlaceholderImage": true,
   "syncExcalidraw": false,
   "experimentalFileType": false,
   "experimentalFileTag": "✏️",
@@ -111,6 +119,7 @@
   "zoteroCompatibility": false,
   "fieldSuggester": true,
   "enableOnloadScripts": false,
+  "enableCommandLinks": false,
   "compatibilityMode": false,
   "drawingOpenCount": 0,
   "library": "deprecated",
@@ -127,8 +136,31 @@
   "mdFontColor": "Black",
   "mdBorderColor": "Black",
   "mdCSS": "",
+  "markdownImageSettings": {
+    "defaults": {
+      "width": 500,
+      "paddingBottom": 10,
+      "fontFamily": "Virgil",
+      "fontColor": "Black",
+      "border": {
+        "enabled": false,
+        "color": "Black"
+      },
+      "css": "",
+      "transclusion": {
+        "enabled": false,
+        "fontFamily": "Cascadia",
+        "fontColor": "Black",
+        "border": {
+          "enabled": false,
+          "color": "Black"
+        },
+        "css": ""
+      }
+    }
+  },
   "scriptEngineSettings": {},
-  "previousRelease": "2.23.3",
+  "previousRelease": "2.26.4",
   "showReleaseNotes": true,
   "excalidrawMasteryPromoCollapsed": false,
   "compareManifestToPluginVersion": true,
