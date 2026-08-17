@@ -414,12 +414,49 @@ $$
 V=\int^b_aS(x)\,dx
 $$
 
-#### 曲线弧长
+### 曲线弧长
 
+（1）若曲线由直角坐标方程$y=f(x)$表示，弧长为：
+$$
+s=\int^b_a\sqrt{1+y'^2}\,dx
+$$
+（2）若曲线由参数方程$\left\{\begin{matrix}x=x(t)\\y=y(t)\end{matrix}\right.$ 给出，则弧长为：
+$$
+s=\int^\beta_\alpha\sqrt{x'^2+y'^2}\,dt
+$$
+（3）若曲线由极坐标方程$r=r(\theta)$给出，则弧长为：
+$$
+s=\int^\beta_\alpha\sqrt{r^2+r'^2}\,d\theta
+$$
+### 旋转体侧面积
 
+$$
+\begin{matrix}
+S=2\pi\int_a^bf(x)\sqrt{1+f'^2(x)}\,dx\\\\
+S=2\pi\int^\beta_\alpha y(t)\sqrt{x'^2+y'^2}\,dt\\\\
+S=2\pi\int^\beta_\alpha r(\theta)\sin\theta\sqrt{r^2+r'^2}\,d\theta
+\end{matrix}
+$$
+## 物理应用
 
+题型：
+1. 压力
+2. 引力
+3. 变力做功
 
+# 导数应用常考题型方法
 
+## 题型1 几何应用
+
+**常见的特殊曲线**：
+1. 星型线：$x^{\dfrac{2}{3}}+y^{\dfrac{2}{3}}=a^{\dfrac{2}{3}}$
+2. 心形线：$r=a(1+\cos\theta)$
+3. 摆线：$\left\{\begin{matrix}x=a(t-\sin t)\\y=a(1-\cos t)\end{matrix}\right.$
+4. 双扭线：$(x^2+y^2)^2=a^2(x^2-y^2)\quad$或者写成极坐标形式：$r^2=a^2\cos2\theta$
+
+## 题型2 物理应用
+
+**细棒质心公式**：$\overline x=\dfrac{\int_\alpha^\beta x\rho(x)\,dx}{\int_\alpha^\beta \rho(x)\,dx}$
 
 
 
