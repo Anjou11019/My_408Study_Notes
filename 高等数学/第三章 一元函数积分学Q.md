@@ -292,6 +292,137 @@ $$
  - 改写成变上限积分
  - 拉格朗日中值定理
 
+# 反常积分
+
+##### 8.17
+
+## 无穷区间上的反常积分
+
+**定义1**：若以下极限存在，则反常积分存在（该反常积分为**收敛**的）
+$$
+\begin{matrix}
+\int^{+\infty}_af(x)\,dx = \lim_{t\to+\infty}\int^t_af(x)\,dx\\\\
+\int^b_{-\infty} f(x)\,dx = \lim_{t\to-\infty}\int^b_tf(x)\,dx\\\\
+\int^{+\infty}_{-\infty} f(x)\,dx = \int_{-\infty}^0f(x)dx+\int_0^{+\infty}f(x)dx
+\end{matrix}
+$$
+
+**定理1**：（比较判别法）
+设$f(x),g(x)在[a,+\infty)$上连续，且$0\leq f(x)\leq g(x)$，则：
+ 1. $\int_a^{+\infty}g(x)dx \, 收敛\,\Rightarrow \int_a^{+\infty}f(x)dx\,收敛$ 
+ 2. $\int_a^{+\infty}f(x)dx \, 发散\,\Rightarrow \int_a^{+\infty}g(x)dx\,发散$ 
+
+**定理2**：（比较的极限形式）
+设$f(x),g(x)在[a,+\infty)$上非负连续，$\lim_{x\to+\infty}\dfrac{f(x)}{g(x)}=\lambda$，则
+ 1. $\lambda>0$，那么$\int_a^{+\infty}f(x)\,dx与\int_a^{+\infty}g(x)\,dx$**同敛散**
+ 2. $\lambda=0$，若$\int_a^{+\infty}g(x)\,dx\,收敛\,\Rightarrow\int_a^{+\infty}f(x)\,dx\,收敛$
+ 3. $\lambda =+\infty$，若$\int_a^{+\infty}f(x)\,dx\,发散\,\Rightarrow\int_a^{+\infty}g(x)\,dx\,发散$
+
+### <span style="color:red;font-weight:bold">常用结论</span>
+$$
+\int^{+\infty}_a\dfrac{1}{x^P}\,dx
+\left\{
+\begin{matrix}
+P>1,收敛\\
+P\leq1,发散
+\end{matrix}\quad
+(a>0)
+\right.
+$$
+
+## 无界函数的反常积分
+
+**定义**：设点a为函数$f(x)$的瑕点，若极限**存在**，则称反常积分**收敛**
+$$
+\int_a^{b}f(x)dx = \lim_{t\to a^+}\int_t^{b}f(x)dx
+$$
+$$
+\int_a^{b}f(x)dx = \lim_{t\to b^-}\int_a^{t}f(x)dx
+$$
+$$
+\int_a^{b}f(x)dx = \int_a^cf(x)dx+\int_c^{b}f(x)dx\quad(a<c<b)
+$$
+
+**定理1**：（比较判别法）
+设$f(x),g(x)在(a,b]$上连续，且$0\leq f(x)\leq g(x)$，则：
+ 1. $\int_a^b g(x)dx \, 收敛\,\Rightarrow \int_abf(x)dx\,收敛$ 
+ 2. $\int_a^b f(x)dx \, 发散\,\Rightarrow \int_a^b g(x)dx\,发散$ 
+
+**定理2**：（比较的极限形式）
+设$f(x),g(x)在(a,b]$上非负连续，且$\lim_{x\to a^+}\dfrac{f(x)}{g(x)}=\lambda$
+ 1. $\lambda>0$，那么$\int_a^{b}f(x)\,dx与\int_a^{b}g(x)\,dx$**同敛散**
+ 2. $\lambda=0$，若$\int_a^{b}g(x)\,dx\,收敛\,\Rightarrow\int_a^{b}f(x)\,dx\,收敛$
+ 3. $\lambda =+\infty$，若$\int_a^{b}f(x)\,dx\,发散\,\Rightarrow\int_a^{b}g(x)\,dx\,发散$
+
+### <span style="color:red;font-weight:bold">常用结论</span>
+$$
+\int^{b}_a\dfrac{1}{(x-a)^P}\,dx\,与\,\int^{b}_a\dfrac{1}{(b-x)^P}\,dx\quad
+\left\{
+\begin{matrix}
+P<1,收敛\\
+P\geq1,发散
+\end{matrix}\quad
+\right.
+$$
+
+# 反常积分常考题型方法
+
+## 题型1 反常积分敛散性
+
+**方法**：
+ 1. 定义
+ 2. 比较法
+ 3. P积分
+
+## 题型2 反常积分的计算
+
+# 定积分的应用
+
+## 几何应用
+
+### 平面域的面积
+ 
+ **方法**：二重积分计算
+$$
+\iint_D 1\,dx\,dy
+$$
+
+### 空间体的体积
+
+#### 旋转体的体积
+
+平面域D绕直线$L:ax+by+c=0$（该直线不穿过区域D）旋转所得旋转体体积记为V，则
+$$
+dV=2\pi\,r(x,y)\,d\sigma\quad(D上一点绕L一圈的周长)
+$$
+$$
+对该周长在平面域积分：V=2\pi\iint_Dr(x,y)\,d\sigma\quad
+$$
+$$
+此时：r(x,y)=\dfrac{|ax+by+c|}{\sqrt{a^2+b^2}}
+$$
+**推广**：绕x，y轴旋转
+$$
+\begin{gather*}
+V_X=2\pi\iint_D\,y\,d\sigma=2\pi\int^b_a\,dx\int_0^{f(x)}y\,dy=\pi\int^b_af^2(x)\,dx\\\\
+V_y=2\pi\iint_D\,x\,d\sigma=2\pi\int^b_a\,dx\int_0^{f(x)}x\,dy=2\pi\int^b_axf(x)\,dx
+\end{gather*}
+$$
+
+#### 已知横截面面积的体积
+$$
+V=\int^b_aS(x)\,dx
+$$
+
+#### 曲线弧长
+
+
+
+
+
+
+
+
 
 
 $$
