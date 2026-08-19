@@ -149,8 +149,8 @@ $$
 \int^{\dfrac{\pi}{2}}_0\sin^nxdx=\int^{\dfrac{\pi}{2}}_0\cos^nxdx=
 \left\{
 \begin{matrix}
-\dfrac{n-1}{n}·\dfrac{n-3}{n-2}·...·\dfrac{1}{2}·\dfrac{\pi}{2},n为奇数\\\\
-\dfrac{n-1}{n}·\dfrac{n-3}{n-2}·...·\dfrac{2}{3},n为偶数
+\dfrac{n-1}{n}·\dfrac{n-3}{n-2}·...·\dfrac{1}{2}·\dfrac{\pi}{2},n为偶数\\\\
+\dfrac{n-1}{n}·\dfrac{n-3}{n-2}·...·\dfrac{2}{3},n为奇数
 \end{matrix}
 \right.
 $$
@@ -345,7 +345,7 @@ $$
 
 **定理1**：（比较判别法）
 设$f(x),g(x)在(a,b]$上连续，且$0\leq f(x)\leq g(x)$，则：
- 1. $\int_a^b g(x)dx \, 收敛\,\Rightarrow \int_abf(x)dx\,收敛$ 
+ 1. $\int_a^b g(x)dx \, 收敛\,\Rightarrow \int_a^bf(x)dx\,收敛$ 
  2. $\int_a^b f(x)dx \, 发散\,\Rightarrow \int_a^b g(x)dx\,发散$ 
 
 **定理2**：（比较的极限形式）
