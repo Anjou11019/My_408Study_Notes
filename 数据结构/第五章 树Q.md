@@ -322,3 +322,116 @@ WPL（带权路径长度）
  - **结点**的WPL：从该节点到根之间的路径长度 × 节点上权值
  - **树**的WPL：树中所有**叶子节点**的带权路径长度之和
 
+# 考点7 并查集的基本操作
+
+##### 8.20
+
+选择题与大题==从未考过==
+
+**考点**：
+1. 管理多个不相交集合
+2. **核心操作**：先查再并
+
+并查集采用**双亲表示法**进行存储：初始化如下
+```cpp
+# define MAXSIZE 10
+void Initial(int S[]){
+	for(int i = 0; i < MAXSIZE; i++){
+		S[i] = -1;
+	}
+}
+```
+
+查找操作（如果为**负数**则代表为**根元素**，负数的相反数代表有几个元素）
+```cpp
+int Find(int S[],int x){
+	while(S[x] >= 0){
+		x = S[x];
+	}
+	return x;
+}
+```
+
+路径压缩：把查找路径上的所有元素挂到根下边
+```cpp
+int FindWithPathCompression(int S[],int x){
+	int root = x;
+	while(S[root] >= 0){
+		root = S[root];//找集合的根
+	}
+	while(x!=root){
+		int t = S[x];//t标记x父节点
+		S[x] = root;//x挂到父节点下
+		x = t;//循环处理路径节点
+	}
+	return root;
+}
+```
+
+合并操作：传入的参数为两个集合的**代表元素**
+```cpp
+void Union(int S[],int root1,int root2){
+ if(root1 == root2) return;
+ S[root1] += S[root2];
+ S[root2] = root1;
+}
+```
+
+按规模合并：一直将**小**的集合合并到大的集合里边
+ - 优化后的Union可以将集合树的==高度控制在==$O(\log_2 n)$
+```cpp
+void UnionBySize(int S[],int root1,int root2){
+	if(root1 == root2) return;
+	if(S[root1] < S[root2]){
+		S[root1] += S[root2];
+		S[root2] = root1;
+	}
+	else{
+		S[root2] += S[root1];
+		S[root1] = root2;
+	}
+}
+```
+
+## 并查集的应用
+
+### 检测图中是否有环
+
+**过程**：
+1. 初始化并查集
+2. 遍历所有边：
+    - 对于（u，v）：
+        - `Find u`所在集合的`root u`
+        - `Find v`所在集合的`root v`
+    - 判断是否在同一集合：
+	    - 如果`root u == root v`，加入（u，v）会形成环
+	    - 如果`root u != root v`，使用Union合并两个集合
+3. 完成遍历
+
+### 实现克鲁斯卡尔Kruskal算法
+
+Kruskal算法：用来生成最小生成树的
+**过程**：
+ 1. 初始化并查集
+ 2. 将途中所有边按权重**从小到大**排列
+ 3. 遍历所有边：
+    - 对于（u，v）：
+        - `Find u`所在集合的`root u`
+        - `Find v`所在集合的`root v`
+    - 判断是否在同一集合：
+	    - 如果`root u == root v`，跳过，遍历下一条边
+	    - 如果`root u != root v`，则添加（u,v）不会有环，将这条边加入最小生成树，使用Union操作合并两个集合
+ 4. 如果最小生成树的边的数量已达到 |v| - 1，则停止；如果边不够但没有更多的边可选，说明**原图不连通，无法生成MST**
+
+### 判断无向图的连通性
+
+**过程**：
+ 1. 初始化并查集
+ 2. 遍历所有边
+    - 对于（u，v）：
+        - `Find u`所在集合的`root u`
+        - `Find v`所在集合的`root v`
+    - 判断是否在同一集合：
+	    - 如果`root u == root v`，跳过（已连通）
+	    - 如果`root u != root v`，使用Union操作合并两个集合，这意味着u和v当前连通
+ 3. 遍历图中所有顶点，使用Find找到根，如果所有顶点所在集合的根相同，则图连通
