@@ -29,7 +29,7 @@ $$
  - **求解**：令$y'=p,y''=\dfrac{dp}{dx}$，==原式等于==：$\dfrac{dp}{dx}=f(x,p)$
 
 （3）$y''=f(y,y')$
- - **求解**：令$y'=p,y''=p\dfrac{dp}{dx}$，==原式等于==：$p\dfrac{dp}{dx}=f(y,p)$
+ - **求解**：令$y'=p,y''=p\dfrac{dp}{dy}$，==原式等于==：$p\dfrac{dp}{dy}=f(y,p)$
 
 # 高阶线性方程
 
