@@ -352,6 +352,13 @@ $$
 \end{gather*}
 $$
 
+遇到$A^*$的题从以下几种情况分析：
+ 1. 代数余子式
+ 2. $AA^*=A^*A=|A|E$
+     - 特别的，当|A|=0时，得到$A^*A=0$，即A的每一列均为$A^*x=0$的解
+ 3. 从$r(A^*)与r(A)$的关系进行分析
+ 4. 从$A^*,A$特征值、特征向量的关系进行分析
+
 ### 逆矩阵
 $$
 A^{-1}=\dfrac{1}{|A|}A^*
@@ -398,7 +405,223 @@ $$
 2. 满秩即可逆
 3. 特征值不为0
 
+# 矩阵的高次幂
 
+##### 9.8
+
+**定义**：设A是n阶矩阵，k个A连乘的乘积称为A的k次幂
+
+当m，k为正整数时，有$\left\{\begin{matrix}A^mA^k=A^{m+k}\\(A^m)^k=A^{mk}\end{matrix}\right.$
+
+遇到高次幂的题型，考虑以下情况：
+ 1. 幂0矩阵
+ 2. 二项展开型
+ 3. 秩为1矩阵
+若不为上述三种，则：
+ 4. 试算法
+ 5. 矩阵相似对角化
+
+## <span style="color:red;font-weight">秩为1矩阵</span>
+
+若矩阵A的秩$r(A)=1$，则A一定可以拆分成一个列向量和一个行向量的乘积
+$$
+\begin{gather*}
+	\begin{bmatrix}
+		a_1b_1&a_1b_2&a_1b_3\\
+		a_2b_1&a_2b_2&a_2b_3\\
+		a_3b_1&a_3b_2&a_3b_3\\
+	\end{bmatrix}=
+	\begin{bmatrix}
+		a_1\\a_2\\a_3
+	\end{bmatrix}
+	\begin{bmatrix}
+		b_1&b_2&b_3
+	\end{bmatrix}=\alpha\beta^T
+\end{gather*}
+$$
+
+**相关结论**：
+ 1. $tr(A)=\alpha^T\beta=\beta^T\alpha=l$ 都是同一个数
+ 2. 此时，A满足$A^2=lA$，从而$A^n=l^{n-1}A$
+
+# 初等矩阵与初等变换
+
+**初等矩阵**：单位矩阵经过一次初等变换所得的矩阵
+
+**初等变换**：
+ 1. 对换变换：交换矩阵A的两行位置
+ 2. 倍乘变换：用一非零常数乘以A的某一行
+ 3. 倍加变换：把矩阵A的某一行的k倍加到矩阵A的另外一行上去
+
+**定理1**：设A是m×n的矩阵，对A实施一次初等**列**变换，相当于在A的**右边**乘以相应的n阶初等矩阵，同理，对A实施一次初等**行**变换，相当于在A的**左边**乘以相应的m阶初等矩阵
+
+**定理2**：设A是m×n的矩阵，皆可经过有限次初等行变换化为行阶梯型矩阵或行最简形矩阵
+
+**定理3**：对于任意的m×n的矩阵，总存在行最简矩阵U和m阶初等矩阵$P_1P_2P_3...P_s$使得
+$$
+P_s...P_2P_1A=U
+$$
+
+**定理4**：对于任意的m×n的矩阵A，总可经过有限次初等变换变为标准型矩阵（标准型是唯一的），由m，n，r唯一确定
+$$
+\begin{gather*}
+E_{m\times n}^{(r)}=
+\begin{bmatrix}
+	E_r&O\\
+	O&O\\
+\end{bmatrix}_{m\times n}
+\end{gather*}
+$$
+
+**定理5**：可逆矩阵A可以表示为若干个初等矩阵的乘积
+
+![[初等矩阵的行列式、逆矩阵、转置矩阵]]
+
+**总结**：
+ 1. 求逆矩阵，解方程，只作**初等行变换**
+ 2. 求矩阵标准型，求矩阵的秩**行列变换均可**
+
+# 矩阵乘法进阶
+
+**结论1**：若A是m×n的矩阵，B是n×s的矩阵，且AB=O，对B和O矩阵按列分块有：
+ 1. $r(A)+r(B)\leq n$
+ 2. 特征值，特征向量角度：$b_1,b_2...b_s$是A对应于**0特征值**的特征向量
+$$
+AB=A[b_1,b_2...b_s]=[Ab_1,Ab_2...Ab_s]=[0,0...0]
+$$
+$$
+Ab_i=0(i=1,2,...,s)
+$$
+即==B的**列向量**是齐次方程组Ax=0的解==
+
+**结论2**：若A是m×n的矩阵，对A进行行分块，其次方程组Ax=0可表示为：
+ - 若题目出现“正交”，可能需要从这个角度解题
+$$
+\begin{gather*}
+	\begin{bmatrix}
+		\alpha_1^T\\
+		\alpha_2^T\\
+		...\\
+		\alpha_m^T
+	\end{bmatrix}x=
+	\begin{bmatrix}
+		0\\0\\...\\0
+	\end{bmatrix}
+\end{gather*}
+$$
+即==A的所有**行向量**均与解向量x正交==
+
+**结论3**：若AB=C，A是m×n的矩阵，B是n×s的矩阵，对矩阵AC分块，有：
+$$
+\begin{gather*}
+	\begin{bmatrix}
+		\alpha_1&\alpha_2&...&\alpha_n
+	\end{bmatrix}
+	\begin{bmatrix}
+		b_{11}&b_{12}&...&b_{1s}\\
+		b_{21}&b_{22}&...&b_{2s}\\
+		...&...&...&...\\
+		b_{n1}&b_{n2}&...&b_{ns}
+	\end{bmatrix}=
+	\begin{bmatrix}
+		c_1&c_2&...&c_s
+	\end{bmatrix}
+	\\\\由此得出：
+	\left
+	\{
+	\begin{matrix}
+		b_{11}\alpha_1+b_{21}\alpha_2+...+b_{n1}\alpha_n=c_1\\
+		b_{12}\alpha_1+b_{22}\alpha_2+...+b_{n2}\alpha_n=c_2\\
+		...\\
+		b_{1s}\alpha_1+b_{2s}\alpha_2+...+b_{ns}\alpha_n=c_s\\
+	\end{matrix}
+	\right.
+\end{gather*}
+$$
+即==矩阵AB的**列向量**可由**A**的**列向量**表示==
+**同理可得**：==矩阵AB的**行向量**可由**B**的**行向量**线性表示==
+
+# <span style="color:red">矩阵的秩</span>
+
+**定义**：若A是m×n的矩阵，如果A中不为0的子式的最高阶数为r，即存在r阶子式不为0，而任何r+1的子式均为0，则称r为矩阵A的秩
+
+**秩的等价说法**：
+$$
+\left
+\{
+\begin{matrix}
+	r(A)=r\Leftrightarrow A中至少有r阶子式不为0\\
+	r(A)\leq r\Leftrightarrow A中任意r阶以上的子式全为0\\
+	r(A)\geq r\Leftrightarrow A中至少有一个r阶子式不为0
+\end{matrix}
+\right.
+$$
+## 秩的相关结论
+
+![[秩的相关结论]]
+
+**结论**：若n阶矩阵满足$(A-aE)(A-bE)=O$，且$a\neq b$，则有$r(A-aE)+r(A-bE)=n$
+ - **证明**：由$(A-aE)(A-bE)=O$得$r(A-aE)+r(A-bE)\leq n$，
+   即要证$r(A-aE)+r(A-bE)=n$，
+   只需证$r(A-aE)+r(A-bE)\geq n$即可，
+   由$r(A±B)\leq r(A)+r(B)$
+   可知：$r(A-aE)+r(A-bE)\geq r[(A-aE)-(A-bE)]=r[(b-a)E]=n(a\neq b)$，故得证
+
+# <span style="color:red">分块矩阵</span>
+
+**拉普拉斯公式**：
+1.  $\begin{gather*}\begin{bmatrix}A_m&O\\ *&B_n\end{bmatrix}=|A|·|B|,\begin{bmatrix}A_m&*\\O&B_n\end{bmatrix}=|A|·|B|\end{gather*}$
+2. $\begin{gather*}\begin{bmatrix}O&A_m\\ B_n&* \end{bmatrix}=(-1)^{mn}|A|·|B|,\begin{bmatrix}*&A_m\\B_n&O\end{bmatrix}=(-1)^{mn}|A|·|B|\end{gather*}$
+
+**分块对角矩阵的幂**：
+$$
+\begin{gather*}
+	\begin{bmatrix}
+		A_1& & &\\
+		 &A_2& &\\
+		 & & ... &\\
+		 & & &A_n
+	\end{bmatrix}=
+		\begin{bmatrix}
+		A_1^n& & &\\
+		 &A_2^n& &\\
+		 & & ... &\\
+		 & & &A_n^n
+	\end{bmatrix}
+\end{gather*}
+$$
+*分块副对角矩阵的幂没有这个规律*
+
+**分块对角矩阵的逆**：若B，C均为m阶与n阶的可逆矩阵，则$$
+\begin{gather*}
+	\begin{bmatrix}
+		B&O\\O&C
+	\end{bmatrix}^{-1}=
+	\begin{bmatrix}
+		B^{-1}&O\\O&C^{-1}
+	\end{bmatrix}\\\\
+	\begin{bmatrix}
+		O&B\\C&O
+	\end{bmatrix}^{-1}=	
+	\begin{bmatrix}
+		O&C^{-1}\\
+		B^{-1}&O
+	\end{bmatrix}
+\end{gather*}
+$$
+**分块矩阵的转置**：大转+小转
+$$
+\begin{gather*}
+\begin{bmatrix}A&B\end{bmatrix}^T=\begin{bmatrix}A^T\\B^T\end{bmatrix}\\\\
+\begin{bmatrix}A\\B\end{bmatrix}^T=\begin{bmatrix}A^T&B^T\end{bmatrix}
+\end{gather*}
+$$
+![[分块矩阵的广义初等变换]]
+
+**分块矩阵的秩**：
+ 1. $\begin{gather*}r\begin{bmatrix}A&O\\O&B\end{bmatrix}=r\begin{bmatrix}O&A\\B&O\end{bmatrix}=r(A)+r(B)\end{gather*}$
+ 2. $\begin{gather*}r\begin{bmatrix}A&C\\O&B\end{bmatrix}\geq r(A)+r(B),r\begin{bmatrix}A&O\\C&B\end{bmatrix}\geq r(A)+r(B)\end{gather*}$
+     - ==取等号的条件==：<span style="color:red">C的行可由A的行表示，或者C的列可由B的列表示</span>，当**A可逆**或**B可逆**时，等号一定成立
 
 
 
