@@ -1,4 +1,4 @@
-# 向量复习课
+ # 向量复习课
 
 ##### 9.10
 
@@ -208,29 +208,150 @@ QR分解：A为n阶可逆矩阵，则A一定可以分解为==一个Q（正交矩
  2. 向量组的**任意**两个极大无关组等价
  3. 等价向量组的极大无关组等价
  4. ==等价向量组的秩相等==（易错点：不能反推）
+ 5. 向量组**左乘列满秩**的矩阵，秩不变
 
 *注：两个向量组等价，向量的个数不一定相同*
 *注：要将向量组等价与矩阵等价区分*
 
+# 线性方程组解的判定
 
+##### 9.14
 
-
-
-
-
+## 齐次线性方程组Ax=0解的判定
 
 $$
+Ax=0
 \left
 \{
 \begin{matrix}
-
+只有零解\Leftrightarrow r(A)=n(列满秩)\\
+有非零解\Leftrightarrow r(A) < n(列不满秩)\\
 \end{matrix}
 \right.
 $$
+*注：齐次线性方程组无论如何都有解，零解是肯定有的*
+
+*注：r(A) = A的列秩 = A的行秩，所以r(A)也代表有效方程数，有效方程数与n的关系，决定是否有非零解*
+
+## 非齐次方程线性方程组Ax=b解的判定
+
+$$
+Ax=b
+\left
+\{
+\begin{matrix}
+无解\Leftrightarrow r(A)\neq r(A,b)\\
+有解\Leftrightarrow r(A) = r(A,b)
+	\left
+	\{
+	\begin{matrix}
+		有唯一解\Leftrightarrow r(A)=r(A,b)=n\\
+		有无穷解\Leftrightarrow r(A)=r(A,b) < n
+	\end{matrix}
+	\right.
+\end{matrix}
+\right.
+$$
+
+*当A行满秩的时候，Ax=b一定有解*
+
+# <span style="color:red;font-weight:bold">线性方程组解的结构</span>
+
+## 齐次线性方程组Ax=0
+
+**性质**：设$\alpha_1,...,\alpha_s$都是$Ax=0$的解，则$k_1\alpha_1+...+k_s\alpha_s$也是$Ax=0$的解
+
+**基础解系**：
+若$\alpha_1,...,\alpha_{n-r}$满足下面三条：
+ 1. **是解**：$\alpha_1,...,\alpha_{n-r}$均是齐次线性方程组Ax=0的解向量
+ 2. **无关**：$\alpha_1,...,\alpha_{n-r}$线性无关
+ 3. **个数满足要求**：$\alpha_1,...,\alpha_{n-r}$向量个数满足$n-r(A)$
+则称$\alpha_1,...,\alpha_{n-r}$为齐次线性方程组Ax=0的基础解系
+ - ==基础解系可以看成解向量组的极大线性无关组==
+
+**通解结构**：
+若$\alpha_1,...,\alpha_{n-r}$是齐次线性方程组Ax=0的基础解系，则称$x=k_1\alpha_1+...+k_{n-r}\alpha_{n-r}$为Ax=0的通解
+
+## 非齐次线性方程组Ax=b
+
+**解的性质**：
+ 1. 设$\eta_1,\eta_2$都是Ax=b的解，则$\eta_1-\eta_2$是它的导出组Ax=0的解
+ 2. 设$\eta$是Ax=b的一个解，$\xi$是它导出组Ax=0的解，则$\xi+\eta$是Ax=b的解
+ 3. 设$\eta_1,\eta_2,...,\eta_s$都是Ax=b的解，则
 $$
 \begin{gather*}
-\begin{bmatrix}
-
-\end{bmatrix}
+当k_1+k_2+...+k_s=1时，k_1\eta_1+k_2\eta_2+...+k_s\eta_s是Ax=b的解\\\\
+当k_1+k_2+...+k_s=0时，k_1\eta_1+k_2\eta_2+...+k_s\eta_s是Ax=0的解
 \end{gather*}
 $$
+
+**解的结构**：
+如果线性方程组Ax=b有解$\eta$满足$A\eta=b$，其导出组Ax=0的通解为$x=k_1\eta_1+k_2\eta_2+...+k_{n-r}\eta_{n-r}$，则Ax=b的任意解都可写成$x=k_1\eta_1+k_2\eta_2+...+k_{n-r}\eta_{n-r}+\eta$
+
+# <span style="color:red;font-weight:bold">公共解和同解问题</span>
+
+##### 9.15
+
+## 公共解
+
+求方程组$I,II$的**公共解**的方法有三种：
+ 1. 若方程组$I,II$已知，则联立方程组的解就是$I,II$的公共解
+ 2. **求出**方程组$I$的通解$k_1\xi_1,...,k_s\xi_s$，**带入**方程组$II$，**求出**$k_i$之间的约束关系，**带回**方程组$I$的通解$k_1\xi_1,...,k_s\xi_s$即为方程组$I,II$的公共解
+ 3. 若方程组$I,II$没有给出，但若可求得方程组$I$的基础解系$\alpha_1,...,\alpha_s$，和方程组$II$的基础解系$\beta_1,...,\beta_t$，则可设公共解为$\gamma$，那么有：
+    $$
+    \gamma=k_1\alpha_1+...+k_s\alpha_s=l_1\beta_1+...+l_t\beta_t
+    $$
+    即
+    $$
+    k_1\alpha_1+...+k_s\alpha_s-l_1\beta_1-...-l_t\beta_t=0
+    $$
+    **解出**$k_1,...,k_s,l_1,...,l_t$即可求得公共解$\gamma$
+
+**经典反例积累**：
+$$
+\begin{gather*}
+设A=
+	\begin{bmatrix}
+		1&0\\0&0
+	\end{bmatrix}，
+B=  \begin{bmatrix}
+		0&1\\0&0	
+	\end{bmatrix}
+则：\\\\
+	AB=\begin{bmatrix}
+		0&1\\0&0
+	   \end{bmatrix}，
+	BA=\begin{bmatrix}
+		0&0\\0&0
+	   \end{bmatrix}
+\end{gather*}
+$$
+
+## 解的单向归属问题
+
+设A，B均为m×n的矩阵，Bx=0的解**都是**Ax=0的解，结论：
+ - $\Leftrightarrow$ A的行向量可由B的行向量线性表示
+ - $\Leftrightarrow r(B) = r\begin{bmatrix}A\\B\end{bmatrix}$
+ - $\Leftrightarrow Bx=0\,\,与 \begin{bmatrix}A\\B\end{bmatrix}x=0$ **同解**
+*可以认为：Bx=0的解是由Ax=0的解，继续**加约束**得出的
+
+
+## 同解
+
+**齐次方程组**：
+设A，B均为m×n的矩阵，Bx=0与Ax=0**同解**，结论：
+ - $\Leftrightarrow$ A与B的行向量等价
+ - $\Leftrightarrow$ Ax=0的解满足Bx=0，且Bx=0的解满足Ax=0
+ - $\Leftrightarrow$ $r(A)=r(B)$，且Ax=0的解满足Bx=0
+ - $\Leftrightarrow r(A)=r(B)=r\begin{bmatrix}A\\B\end{bmatrix}$ 
+
+**非齐次方程组**：
+设A，B均为m×n的矩阵，$Ax=\alpha与Bx=\beta$**同解**，结论：
+ - $\Leftrightarrow \, (A,\alpha)\,,(B,\beta)$行向量等价
+ - $\Leftrightarrow r(A,\alpha)=r(B,\beta)=r\begin{bmatrix}A&\alpha\\B&\beta\end{bmatrix}$
+
+**常用结论**：
+ 1. 设矩阵P**列满秩**，则PAx=0与Ax=0同解
+ 2. $A^TAx=0与Ax=0$同解
+ 3. 设A为n阶矩阵，则$A^nx=0与A^{n+1}x=0$同解
+
