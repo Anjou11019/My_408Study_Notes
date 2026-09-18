@@ -2,5 +2,7 @@
   "cssTheme": "AnuPpuccin",
   "theme": "moonstone",
   "nativeMenus": false,
-  "accentColor": "#5f5cf5"
+  "accentColor": "",
+  "textFontFamily": "",
+  "baseFontSize": 15
 }
