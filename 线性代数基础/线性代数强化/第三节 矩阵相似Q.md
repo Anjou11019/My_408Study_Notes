@@ -227,20 +227,3 @@ $$
 
 
 
-
-$$
-\left
-\{
-\begin{matrix}
-
-\end{matrix}
-\right.
-$$
-
-$$
-\begin{gather*}
-\begin{bmatrix}
-
-\end{bmatrix}
-\end{gather*}
-$$
