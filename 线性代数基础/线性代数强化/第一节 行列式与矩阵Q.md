@@ -295,14 +295,15 @@ $$
 
 $$
 D_n=
-\begin{gather*}
-	\begin{vmatrix}
-		a_{11}&a_{12}&...&a_{1n}\\
-		a_{21}&a_{22}&...&a_{2n}\\
-		...&...&...&...\\
-		a_{n1}&a_{n2}&...&a_{nn}
-	\end{vmatrix}=\sum_{j_1j_2...j_n}(-1)^{\tau(j_1j_2...j_n)}a_{1j_1}a_{2j_2}...a_{nj_n}
-\end{gather*}
+\begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{vmatrix}
+= \sum_{j_1j_2\cdots j_n}
+(-1)^{\tau(j_1j_2\cdots j_n)}
+a_{1j_1}a_{2j_2}\cdots a_{nj_n}
 $$
 它表示所有取自不同行、不同列的n个元素乘积的代数和
 **特点**：
