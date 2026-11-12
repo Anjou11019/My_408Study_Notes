@@ -320,14 +320,44 @@ $$
 
 ### <span style="color:red;font-weight:bold">常用结论</span>
 $$
-\int^{+\infty}_a\dfrac{1}{x^P}\,dx
-\left\{
-\begin{matrix}
-P>1,收敛\\
-P\leq1,发散
-\end{matrix}\quad
-(a>0)
-\right.
+\boxed{
+\int_a^{+\infty}\frac{dx}{x^p}
+\begin{cases}
+\text{收敛}, & p>1,\\[4pt]
+\text{发散}, & p\le 1.
+\end{cases}
+}
+$$
+$$
+\boxed{
+\int_0^a\frac{dx}{x^p}
+\begin{cases}
+\text{收敛}, & p<1,\\[4pt]
+\text{发散}, & p\ge 1.
+\end{cases}
+}
+$$
+$$
+\boxed{
+\int_a^{+\infty}\frac{dx}{x^\alpha\ln^\beta x}
+\begin{cases}
+\text{收敛}, & \alpha>1,\ \beta\text{ 任意},\\[4pt]
+\text{收敛}, & \alpha=1,\ \beta>1,\\[4pt]
+\text{发散}, & \alpha=1,\ \beta\le 1,\\[4pt]
+\text{发散}, & \alpha<1,\ \beta\text{ 任意}.
+\end{cases}
+}
+$$
+$$
+\boxed{
+\int_0^a\frac{dx}{x^\alpha|\ln x|^\beta}
+\begin{cases}
+\text{收敛}, & \alpha<1,\ \beta\text{ 任意},\\[4pt]
+\text{收敛}, & \alpha=1,\ \beta>1,\\[4pt]
+\text{发散}, & \alpha=1,\ \beta\le 1,\\[4pt]
+\text{发散}, & \alpha>1,\ \beta\text{ 任意}.
+\end{cases}
+}
 $$
 
 ## 无界函数的反常积分
