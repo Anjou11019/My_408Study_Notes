@@ -4,5 +4,6 @@
   "nativeMenus": false,
   "accentColor": "",
   "textFontFamily": "",
-  "baseFontSize": 15
+  "baseFontSize": 15,
+  "showRibbon": true
 }
